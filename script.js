@@ -80,11 +80,13 @@ const translations={
     'contact.map':'Otwórz mapę ↗','contact.menu':'Zobacz menu','footer.subtitle':'Turecka kuchnia • Kraków','footer.rights':'Wszystkie prawa zastrzeżone.',
     'card.details':'Mersin Tantuni','card.photo':'Miejsce na zdjęcie',
     'cookies.title':'Ta strona używa niezbędnych plików cookies',
-'cookies.text':'Używamy niezbędnych plików cookies do prawidłowego działania strony i zapamiętania wybranych ustawień. Opcjonalne pliki cookies nie są uruchamiane bez Twojej zgody.',
+'cookies.text':'Korzystamy z plików cookies i podobnych technologii, aby zapewnić prawidłowe działanie strony, zapamiętywać wybrane ustawienia oraz rozwijać i ulepszać nasze usługi.',
 'cookies.accept':'Akceptuję',
 'cookies.reject':'Odrzuć',
 'cookies.settings':'Ustawienia cookies',
-'cookies.policy':'Polityka prywatności'
+// 'cookies.policy':'Polityka prywatności',
+'cookies.policy':'Dowiedz się więcej',
+'cookies.details':'Pliki cookies to niewielkie pliki zapisywane na urządzeniu podczas korzystania ze strony. Mogą być wykorzystywane do zapewnienia podstawowych funkcji strony, zapamiętywania ustawień, analizy sposobu korzystania z serwisu oraz, za Twoją zgodą, do działań marketingowych i personalizacji treści. Zakres wykorzystywanych technologii może zmieniać się wraz z rozwojem strony i dostępnych usług.'
   },
   en:{
     'nav.menu':'Menu','nav.about':'About us','nav.contact':'Contact','nav.cta':'View menu',
@@ -101,11 +103,13 @@ const translations={
     'contact.map':'Open map ↗','contact.menu':'View menu','footer.subtitle':'Turkish cuisine • Kraków','footer.rights':'All rights reserved.',
     'card.details':'Mersin Tantuni','card.photo':'Photo placeholder',
     'cookies.title':'This website uses necessary cookies',
-'cookies.text':'We use necessary cookies to make the website work properly and remember your selected settings. Optional cookies are not activated without your consent.',
+'cookies.text':'We use cookies and similar technologies to ensure the proper functioning of the website, remember your preferences, and develop and improve our services.',
 'cookies.accept':'Accept',
 'cookies.reject':'Reject',
 'cookies.settings':'Cookie settings',
-'cookies.policy':'Privacy Policy'
+// 'cookies.policy':'Privacy Policy',
+'cookies.policy':'Learn more',
+'cookies.details':'Cookies are small files stored on your device when you use the website. They may be used to provide essential website functions, remember your preferences, analyse how the website is used and, with your consent, support marketing activities and content personalisation. The technologies used may change as the website and available services develop.'
   },
   tr:{
     'nav.menu':'Menü','nav.about':'Hakkımızda','nav.contact':'İletişim','nav.cta':'Menüyü gör',
@@ -122,11 +126,13 @@ const translations={
     'contact.map':'Haritayı aç ↗','contact.menu':'Menüyü gör','footer.subtitle':'Türk mutfağı • Kraków','footer.rights':'Tüm hakları saklıdır.',
     'card.details':'Mersin Tantuni','card.photo':'Fotoğraf alanı',
     'cookies.title':'Bu web sitesi gerekli çerezleri kullanır',
-'cookies.text':'Web sitesinin düzgün çalışması ve seçtiğiniz ayarların hatırlanması için gerekli çerezleri kullanıyoruz. İsteğe bağlı çerezler izniniz olmadan etkinleştirilmez.',
+'cookies.text':'Web sitesinin düzgün çalışmasını sağlamak, tercihlerinizi hatırlamak ve hizmetlerimizi geliştirmek için çerezler ve benzer teknolojiler kullanıyoruz.',
 'cookies.accept':'Kabul Et',
 'cookies.reject':'Reddet',
 'cookies.settings':'Çerez ayarları',
-'cookies.policy':'Gizlilik Politikası'
+// 'cookies.policy':'Gizlilik Politikası',
+'cookies.policy':'Daha fazla bilgi',
+'cookies.details':'Çerezler, web sitesini kullandığınızda cihazınızda saklanan küçük dosyalardır. Web sitesinin temel işlevlerini sağlamak, tercihlerinizi hatırlamak, sitenin nasıl kullanıldığını analiz etmek ve izniniz doğrultusunda pazarlama faaliyetleri ile içerik kişiselleştirmesini desteklemek için kullanılabilirler. Kullanılan teknolojiler, web sitesinin ve sunulan hizmetlerin gelişimine bağlı olarak değişebilir.'
   }
 };
 
@@ -135,6 +141,8 @@ const cookieBanner = document.querySelector('#cookie-banner');
 const cookieAccept = document.querySelector('#cookie-accept');
 const cookieReject = document.querySelector('#cookie-reject');
 const cookieSettings = document.querySelector('#cookie-settings');
+const cookieMore = document.querySelector('#cookie-more');
+const cookieDetails = document.querySelector('#cookie-details');
 
 const cookieConsentKey = 'mersinCookieConsent';
 
@@ -171,6 +179,10 @@ cookieReject?.addEventListener('click', () => {
 
 cookieSettings?.addEventListener('click', () => {
   openCookieBanner();
+});
+cookieMore?.addEventListener('click', () => {
+  if(!cookieDetails) return;
+  cookieDetails.hidden = !cookieDetails.hidden;
 });
 window.openCookieSettings = openCookieBanner;
 
@@ -254,10 +266,10 @@ const restaurantSchema={
   '@type':'Restaurant',
   'name':'Mersin Tantuni',
   'image':['assets/logo-mersin-tantuni.jpg'],
-  'url':'https://TWOJA-DOMENA.pl/',
+  'url':'https://mersintantuni.pl/',
   'servesCuisine':['Turecka','Turkish'],
-  'address':{'@type':'PostalAddress','streetAddress':'Świętego Tomasza','addressLocality':'Kraków','addressCountry':'PL'},
-  'menu':'https://agnpaw.github.io/mersin-tantuni/#menu'
+  'address':{'@type':'PostalAddress','streetAddress':'Świętego Tomasza 25','addressLocality':'Kraków','addressCountry':'PL'},
+ 'menu':'https://mersintantuni.pl/#menu'
 };
 const schemaScript=document.createElement('script');
 schemaScript.type='application/ld+json';

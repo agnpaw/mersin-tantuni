@@ -223,4 +223,34 @@
     flex: 1;
     min-height: 42px;
   }
+}.cookie-more {
+  display: inline-block;
+  margin-top: 5px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--red);
+  font: inherit;
+  font-size: .78rem;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cookie-details {
+  flex-basis: 100%;
+  padding: 12px 0 0 66px;
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.5;
+}
+
+.cookie-details[hidden] {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .cookie-details {
+    padding-left: 0;
+  }
 }
